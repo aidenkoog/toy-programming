@@ -3,19 +3,19 @@ This is a repository for studying app and web programming and organizing codes a
 
 ### Description
 
-- In this repository, it's uploaded that TIL, programming practice code, and code related to app or web architecture configuration practice.
+In this repository, it's uploaded that TIL, programming practice code, and code related to app or web architecture configuration practice.
 
 ### Directory Hierarchy
 
-- mobile
-  - android
-  - ios
-  - flutter
-  - react-native
-- web
-  - flutter
-  - react
-  - vanila-js
+- [mobile](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile)
+  - [android](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile/android)
+  - [ios](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile/ios)
+  - [flutter](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile/flutter)
+  - [react-native](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile/react-native)
+- [web](https://github.com/aidenkoog/devtoyprojects/tree/master/web)
+  - [flutter](https://github.com/aidenkoog/devtoyprojects/tree/master/web/flutter)
+  - [react](https://github.com/aidenkoog/devtoyprojects/tree/master/web/react)
+  - [vanila-js](https://github.com/aidenkoog/devtoyprojects/tree/master/web/vanila-js)
 
 
 
