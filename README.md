@@ -5,6 +5,20 @@ This is a repository for studying app and web programming and organizing codes a
 
 - In this repository, it's uploaded that TIL, programming practice code, and code related to app or web architecture configuration practice.
 
+### Directory Hierarchy
+
+- mobile
+  - android
+  - ios
+  - flutter
+  - react-native
+- web
+  - flutter
+  - react
+  - vanila-js
+
+
+
 #### Link
 
 If you are interested in information about me or other activities, please access the link below.
