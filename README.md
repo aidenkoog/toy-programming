@@ -7,15 +7,15 @@ In this repository, it's uploaded that TIL, programming practice code, and code 
 
 ### Directory Hierarchy
 
-- [mobile](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile)
-  - [android](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile/android)
-  - [ios](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile/ios)
-  - [flutter](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile/flutter)
-  - [react-native](https://github.com/aidenkoog/devtoyprojects/tree/master/mobile/react-native)
-- [web](https://github.com/aidenkoog/devtoyprojects/tree/master/web)
-  - [flutter](https://github.com/aidenkoog/devtoyprojects/tree/master/web/flutter)
-  - [react](https://github.com/aidenkoog/devtoyprojects/tree/master/web/react)
-  - [vanila-js](https://github.com/aidenkoog/devtoyprojects/tree/master/web/vanila-js)
+- [mobile](https://github.com/aidenkoog/toy-programming/tree/master/mobile)
+  - [android](https://github.com/aidenkoog/toy-programming/tree/master/mobile/android)
+  - [ios](https://github.com/aidenkoog/toy-programming/tree/master/mobile/ios)
+  - [flutter](https://github.com/aidenkoog/toy-programming/tree/master/mobile/flutter)
+  - [react-native](https://github.com/aidenkoog/toy-programming/tree/master/mobile/react-native)
+- [web](https://github.com/aidenkoog/toy-programming/tree/master/web)
+  - [flutter](https://github.com/aidenkoog/toy-programming/tree/master/web/flutter)
+  - [react](https://github.com/aidenkoog/toy-programming/tree/master/web/react)
+  - [vanila-js](https://github.com/aidenkoog/toy-programming/tree/master/web/vanila-js)
 
 
 
