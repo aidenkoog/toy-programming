@@ -37,42 +37,40 @@ class StateDelegator(
 ) {
 
     init {
-        applicationStateFlow // Application State (Active is Foreground & Background, Inactive is Destroy)
-            .mapLatest { appState ->
-                appState.checkAndRecovery {
+        applicationStateFlow.mapLatest { appState ->
+            appState.checkAndRecovery {
+                recovery.invoke()
+            }
+        }.combine(networkStateFlow) { upStreamState, networkState ->
+            if (upStreamState) {
+                networkState.checkAndRecovery {
                     recovery.invoke()
                 }
-            }
-            .combine(networkStateFlow) { upStreamState, networkState -> // Network State (either wifi, mobile)
-                if (upStreamState) {
-                    networkState.checkAndRecovery {
+            } else false
+        }.combine(webSocketEventFlow) { upStreamState, webSocketEvent ->
+            if (upStreamState) {
+                when (webSocketEvent) {
+                    is WebSocketEvent.OnMessageReceived, is WebSocketEvent.OnConnectionOpen -> {
+                        _connectState.update { ConnectState.Establish }
+                    }
+
+                    WebSocketEvent.OnConnectionClosed -> {
+                        _connectState.update { ConnectState.ConnectClose() }
+                    }
+
+                    is WebSocketEvent.OnConnectionError -> {
+                        _connectState.update {
+                            ConnectState.ConnectError(
+                                GlobalError.SocketLoss(
+                                    webSocketEvent.error
+                                )
+                            )
+                        }
                         recovery.invoke()
                     }
-                } else false
-            }.combine(webSocketEventFlow) { upStreamState, webSocketEvent -> // WebSocket Event flow
-                if (upStreamState) {
-                    when (webSocketEvent) {
-                        is WebSocketEvent.OnMessageReceived, is WebSocketEvent.OnConnectionOpen -> {
-                            _connectState.update { ConnectState.Establish }
-                        }
-
-                        WebSocketEvent.OnConnectionClosed -> {
-                            _connectState.update { ConnectState.ConnectClose() }
-                        }
-
-                        is WebSocketEvent.OnConnectionError -> {
-                            _connectState.update {
-                                ConnectState.ConnectError(
-                                    GlobalError.SocketLoss(
-                                        webSocketEvent.error
-                                    )
-                                )
-                            }
-                            recovery.invoke()
-                        }
-                    }
                 }
-            }.launchIn(scope)
+            }
+        }.launchIn(scope)
     }
 
     private fun AppState.checkAndRecovery(recovery: () -> Unit): Boolean {

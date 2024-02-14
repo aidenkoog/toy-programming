@@ -17,9 +17,6 @@ interface StateManager {
 
     fun retryConnection(onConnect: () -> Unit)
 
-    /**
-     * Either websocket & stomp always work well using send.
-     * */
     fun send(message: EventRequest)
 
     interface Factory {

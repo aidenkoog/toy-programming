@@ -15,8 +15,7 @@ interface SocketListenerProvider {
 }
 
 class ConnectionProvider(
-    private val okHttpClient: OkHttpClient,
-    private val url: String
+    private val okHttpClient: OkHttpClient, private val url: String
 ) : SocketListenerProvider {
 
     override fun provide(socketListener: SocketListener) {

@@ -13,7 +13,6 @@ class OkHttpWebSocket internal constructor(
     private val socketHandler: SocketHandler,
 ) : WebSocket {
 
-
     override fun open(): Flow<WebSocketEvent> = socketListener.collectEvent().onStart {
         provider.provide(socketListener)
     }.onEach {
