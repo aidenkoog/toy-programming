@@ -52,7 +52,7 @@ fun getParameterUpperBound(index: Int, type: ParameterizedType): Type {
     } else paramType
 }
 
-inline fun getController(init: WebSocketController.Builder.() -> Unit): WebSocketController {
+inline fun getSocketService(init: WebSocketController.Builder.() -> Unit): WebSocketController {
     val controller = WebSocketController.Builder()
     controller.init()
     return controller.build()

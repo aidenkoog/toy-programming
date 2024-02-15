@@ -27,7 +27,7 @@ class EventProvider internal constructor(
     }
 
     fun subscribe(request: EventRequest) {
-        stateManager.send(request) // Parts that need to be modified to use other dedicated methods
+        stateManager.send(request)
     }
 
     class Factory(

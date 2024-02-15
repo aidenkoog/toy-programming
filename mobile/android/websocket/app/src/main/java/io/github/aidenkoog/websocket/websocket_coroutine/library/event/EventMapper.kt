@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 
-class EventMapper<T> constructor(
+class EventMapper<T>(
     private val converter: Converter<T>,
     coroutineScope: CoroutineScope
 ) : IMapper<T> {

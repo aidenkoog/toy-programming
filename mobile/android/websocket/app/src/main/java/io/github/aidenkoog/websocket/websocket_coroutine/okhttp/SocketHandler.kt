@@ -29,5 +29,4 @@ class SocketHandler : WebSocket {
         socket?.cancel()
         socket = null
     }
-
 }
