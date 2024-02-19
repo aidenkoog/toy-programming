@@ -5,5 +5,5 @@ package io.github.aidenkoog.unittest.ui
 )
 @Retention(AnnotationRetention.RUNTIME)
 annotation class TestInterface(
-    val name: String = "", val description: String = "", val runOnBackground: Boolean = false
+    val name: String = "", val description: String = "", val runOnBackground: Boolean = false,
 )

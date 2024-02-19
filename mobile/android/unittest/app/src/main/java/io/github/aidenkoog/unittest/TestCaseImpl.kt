@@ -3,6 +3,7 @@ package io.github.aidenkoog.unittest
 import android.util.Log
 import io.github.aidenkoog.unittest.ui.IOnShowLogListener
 import io.github.aidenkoog.unittest.ui.TestInterface
+import io.github.aidenkoog.unittest.utils.DebugLog
 
 class TestCaseImpl : BaseTestCase() {
 
@@ -11,8 +12,11 @@ class TestCaseImpl : BaseTestCase() {
         onShowLogListener = listener
     }
 
-    @TestInterface(name = "System Turn ON", description = "testcase description")
+    @TestInterface(
+        name = "System Turn ON", description = "testcase description", runOnBackground = true
+    )
     private fun turnOnSystem() {
+        DebugLog.i(TAG, "turnOnSystem")
         onShowLogListener?.onLogMessage(Log.INFO, "turnOnSystem: ")
     }
 

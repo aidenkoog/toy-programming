@@ -69,6 +69,9 @@ class MainActivity : AppCompatActivity(), IOnShowLogListener {
     @TestInterface(name = Constants.CLEAR_SCREEN, description = "Clean up log messages")
     private fun clearScreen() = clearLogMessages()
 
+    @TestInterface(name = Constants.FINISH_APP, description = "Finish app log messages")
+    private fun finishApp() = finishAffinity()
+
     private fun initUiComponent() {
         leftListView = findViewById(R.id.listView)
         containerLayout = findViewById(R.id.scrollContainer)
@@ -87,10 +90,11 @@ class MainActivity : AppCompatActivity(), IOnShowLogListener {
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
-        val action = event.action
-        if (KeyEvent.ACTION_DOWN == action) {
+        if (KeyEvent.ACTION_DOWN == event.action) {
             if (keyCode == KeyEvent.KEYCODE_1 && event.repeatCount >= 5) {
                 clearScreen()
+            } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+                finishApp()
             }
         }
         return super.onKeyDown(keyCode, event)
