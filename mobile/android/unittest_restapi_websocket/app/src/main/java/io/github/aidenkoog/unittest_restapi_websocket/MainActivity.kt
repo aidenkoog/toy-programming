@@ -26,7 +26,6 @@ import io.github.aidenkoog.unittest_restapi_websocket.ui.TestCase
 import io.github.aidenkoog.unittest_restapi_websocket.ui.TestCase.Companion.setup
 import io.github.aidenkoog.unittest_restapi_websocket.ui.TestInterface
 import io.github.aidenkoog.unittest_restapi_websocket.utils.Constants
-import io.github.aidenkoog.unittest_restapi_websocket_restapi_websocket.R
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.text.SimpleDateFormat
 import java.util.Date
