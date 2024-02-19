@@ -11,6 +11,7 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.io.OutputStream
 import java.io.OutputStreamWriter
+import java.net.InetSocketAddress
 import java.net.Socket
 import java.nio.charset.Charset
 
@@ -115,20 +116,17 @@ object SocketService {
     }
 
     /* open and connect to server socket. */
-    @OptIn(DelicateCoroutinesApi::class)
     fun openSocket() {
-        GlobalScope.launch {
+        Log.d(TAG, "openSocket: ")
+        Thread {
             try {
                 socket = Socket(SOCKET_IP_ADDRESS, SOCKET_PORT)
-                observeSocketMessage()
+                Log.d(TAG, "openSocket: completed to connect to server")
 
                 Log.d(TAG, "openSocket: socket -> $socket, post socket event (open)")
-                EventBus.post(SocketEvent.OpenSocketEvent)
-
             } catch (e: Exception) {
                 Log.e(TAG, "error -> ${e.localizedMessage}")
-                postSocketError(e)
             }
-        }
+        }.start()
     }
 }
