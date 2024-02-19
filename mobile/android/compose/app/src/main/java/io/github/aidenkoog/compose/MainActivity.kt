@@ -34,10 +34,19 @@ class MainActivity : ComponentActivity() {
                             GreetingTest(name = "Tester")
                             Text(text = "Tester2")
                         }
+                        AddTexts()
                     }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun AddTexts() {
+    val names = listOf("Test1", "Test2")
+    for (name in names) {
+        Text(text = name)
     }
 }
 
