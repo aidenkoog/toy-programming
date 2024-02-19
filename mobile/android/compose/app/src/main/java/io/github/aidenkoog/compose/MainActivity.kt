@@ -39,6 +39,7 @@ class MainActivity : ComponentActivity() {
                         TextViewWithBtn()
                         ButtonWithRemember()
                         ExpandableColumn(name = "Test Expandable")
+                        OnBoardingPreview()
                     }
                 }
             }
