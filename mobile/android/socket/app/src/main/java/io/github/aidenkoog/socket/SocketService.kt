@@ -8,7 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.BufferedReader
 import java.io.IOException
+import java.io.InputStreamReader
 import java.io.OutputStream
 import java.io.OutputStreamWriter
 import java.net.InetSocketAddress
@@ -115,6 +117,9 @@ object SocketService {
         }
     }
 
+    private var outputStream: OutputStream? = null
+    private var bufferedReader: BufferedReader? = null
+
     /* open and connect to server socket. */
     fun openSocket() {
         Log.d(TAG, "openSocket: ")
@@ -122,6 +127,13 @@ object SocketService {
             try {
                 socket = Socket(SOCKET_IP_ADDRESS, SOCKET_PORT)
                 Log.d(TAG, "openSocket: completed to connect to server")
+
+                // 출력 스트림 생성
+                outputStream = socket?.getOutputStream()
+
+                // 입력 스트림 생성
+                val inputStream = socket?.getInputStream()
+                bufferedReader = BufferedReader(InputStreamReader(inputStream))
 
                 Log.d(TAG, "openSocket: socket -> $socket, post socket event (open)")
             } catch (e: Exception) {
