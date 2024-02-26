@@ -20,7 +20,6 @@ class OkHttpWebSocket internal constructor(
             is WebSocketEvent.OnConnectionOpen -> {
                 socketHandler.initWebSocket(it.webSocket as okhttp3.WebSocket)
             }
-
             else -> Unit
         }
     }
