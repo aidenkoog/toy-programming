@@ -1,7 +1,7 @@
 # Toy Programming
 This is a repository for studying app and web programming and organizing codes and concepts.
 
-## Notice ⚡️
+## Notice
 - As of October 18, 2023, this repository will no longer be maintained.
 
 ### Description
